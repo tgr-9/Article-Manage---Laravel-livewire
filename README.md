@@ -1,15 +1,13 @@
-# rapyd-livewire
+# Article Manage App using laravel livewire
 
-<a href="https://github.com/zofe/rapyd-livewire/actions/workflows/run-tests.yml"><img src="https://github.com/zofe/rapyd-livewire/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/zofe/rapyd-livewire"><img src="https://img.shields.io/packagist/dt/zofe/rapyd-livewire" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/zofe/rapyd-livewire"><img src="https://img.shields.io/packagist/v/zofe/rapyd-livewire" alt="Latest Stable Version"></a>
+<a href="https://github.com/tgr-9/Article-Manage---Laravel-livewire/actions/workflows/run-tests.yml"><img src="https://github.com/tgr-9/Article-Manage---Laravel-livewire/actions/workflows/run-tests.yml/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/tgr-9/Article-Manage---Laravel-livewire"><img src="https://img.shields.io/packagist/dt/tgr-9/Article-Manage---Laravel-livewire" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/tgr-9/Article-Manage---Laravel-livewire"><img src="https://img.shields.io/packagist/v/tgr-9/Article-Manage---Laravel-livewire" alt="Latest Stable Version"></a>
 
 [![rapyd.dev](screencast.gif)](https://rapyd.dev/demo)
 
 
 requirements: laravel ^8.65 | 9.* | 10.*
-
-Demo: [rapyd.dev](https://rapyd.dev/demo)
 
 
 ## What is it?
@@ -52,62 +50,12 @@ laravel/
 │  │  │  │  ├─ routes.php
 ```
 
-Rapyd has also some public modules available via "composer require":
-
-
-* [zofe/demo-module](https://github.com/zofe/demo-module) demo
-* [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase 
-* [zofe/auth-module](https://github.com/zofe/auth-module) auth
-
-* [zofe/layout-module](https://github.com/zofe/layout-module) layout
-
-Rapyd has a "module installer": [zofe/rapyd-module-installer](https://github.com/zofe/rapyd-module-installer)   
-this means that you can plan to create & distribute your modules as packages including it as dependency and following a simple naming convention, for example with a composer.json file like this:
-
-```
-{
-    "name": "yourname/mymodule-module",
-    "description": "my custom module for laravel application",
-    "license": "mit",
-    "type": "rapyd-module",
-    "authors": [
-        {
-            "name": "Me",
-            "email": "me@email.com"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0|^8.1|^8.2",
-        "illuminate/config": "^8.65|^9.0|^10.0",
-        "illuminate/contracts": "^8.65|^9.0|^10.0",
-        "livewire/livewire": "^2.0",
-        "zofe/rapyd-livewire": "dev-main|^0.8",
-        "zofe/rapyd-module-installer": "^0.0|^0.1",
-        "zofe/layout-module": "dev-main|^0.0|^0.1"
-    },
-    "config": {
-        "allow-plugins": {
-            "zofe/rapyd-module-installer": true
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-}
-```
-
-then you can include your own modules using composer require "yourname/mymodule-module" and this will install your dependency in 
-`app/Modules/Mymodule`
-
-Please check for example [zofe/knowledgebase-module](https://github.com/zofe/knowledgebase-module) knowledgebase module to get an idea of how to structure it.
-
-
-
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require zofe/rapyd-livewire
+composer require tgr-9/Article-Manage---Laravel-livewire
 ```
 
 
@@ -115,12 +63,6 @@ You can publish static assets using:
 ```bash
 php artisan vendor:publish --provider="Zofe\Rapyd\RapydServiceProvider" --tag="public"
 ```
-
-if you want you can download the demo module in your laravel-rapyd application try the [zofe/demo-module](https://github.com/zofe/demo-module) 
-
-
-
-## Usage
 
 ---
 ### DataTable
@@ -177,9 +119,6 @@ content/slots
 - should be a html table that loops model $items
 - `buttons`: buttons panel
 
-example: [rapyd.dev/demo/articles](https://rapyd.dev/demo/articles)
-
-
 ---
 ### DataView
 a DataView is a "detail page component" with :  
@@ -210,9 +149,6 @@ content/slots
 - `buttons`: buttons panel
 - `actions`: buttons panel
 
-example: [rapyd.dev/demo/article/view/1](https://rapyd.dev/demo/article/view/1)
-
-
 ---
 ### DataEdit
 DataEdit is a "form component" usually binded to a model with:  
@@ -236,9 +172,6 @@ props
 
 content/slots
 - form fields binded with public/model properties
-
-example: [rapyd.dev/demo/article/edit/1](https://rapyd.dev/demo/article/edit/1)
-
 
 ---
 
@@ -355,7 +288,6 @@ there are some css/js dependencies (livewire, bootstrap, alpinejs, vuejs)
 but rapyd has two directive to simplify all needed inclusions.
 
 Consider to use `{{ $slot }}` as entry-point if you plan to use 
-[Full-page components](https://laravel-livewire.com/docs/2.x/rendering-components#page-components)
 
 don't forget to add "app" class to your main div if you plan to use vuejs components
 
@@ -382,36 +314,9 @@ don't forget to add "app" class to your main div if you plan to use vuejs compon
 
 If you want to isolate the layout as well and make it a module, reusable in multiple projects, rapyd does that as well, and it has a default module that you can customize or take as an example:
 
-* [zofe/layout-module](https://github.com/zofe/layout-module) layout module
-
 
 
 ## To-do
 
 - component generators (with custom stub for DataTable,DataEdit,DataView)
 - "plugin" architecture (a way to download a module from a public or private repository.. or just a composer way to deploy in app/Modules)
-
-## Credits
-
-- [Felice Ostuni](https://github.com/zofe)
-- [All Contributors](../../contributors)
-
-
-Inspirations:
-
-- [rapyd-laravel](https://github.com/zofe/rapyd-laravel) my old laravel library (150k downloads)
-- [livewire](https://laravel-livewire.com/)  widely used "full-stack framework" to compose laravel application by widgets
-- [laravel-bootstrap-components](https://github.com/bastinald/laravel-bootstrap-components) smart library which reduced the complexity of this one
-
-
-
-## License & Contacts
-
-Rapyd is licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-Please join me and review my work on [Linkedin](https://www.linkedin.com/in/feliceostuni/)
-
-thanks
-
-
-
